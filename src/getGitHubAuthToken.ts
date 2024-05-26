@@ -11,7 +11,7 @@ export async function getGitHubAuthToken(): Promise<GitHubAuthToken> {
 	const exec = util.promisify(cp.exec);
 	const token = await exec("gh auth token");
 
-	if (token?.stdout) {
+	if (token.stdout) {
 		return { succeeded: true, token: token.stdout };
 	}
 
@@ -20,7 +20,7 @@ export async function getGitHubAuthToken(): Promise<GitHubAuthToken> {
 	return {
 		error:
 			(help.stderr && `Could not run \`gh\`: ${help.stderr}`) ||
-			token?.stderr ||
+			token.stderr ||
 			undefined,
 		succeeded: false,
 	};
