@@ -70,6 +70,12 @@ export default tseslint.config(
 
 			// These on-by-default rules work well for this repo if configured
 			"@typescript-eslint/no-unused-vars": ["error", { caughtErrors: "all" }],
+			"@typescript-eslint/prefer-nullish-coalescing": [
+				"error",
+				{
+					ignorePrimitives: { string: true },
+				},
+			],
 			"perfectionist/sort-objects": [
 				"error",
 				{

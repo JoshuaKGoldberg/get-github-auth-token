@@ -1,5 +1,11 @@
-export interface GreetOptions {
-	logger?: (message: string) => void;
-	message: string;
-	times?: number;
+export interface GitHubAuthTokenFailure {
+	error: string | undefined;
+	succeeded: false;
 }
+
+export interface GitHubAuthTokenSuccess {
+	succeeded: true;
+	token: string;
+}
+
+export type GitHubAuthToken = GitHubAuthTokenFailure | GitHubAuthTokenSuccess;

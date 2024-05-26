@@ -22,10 +22,21 @@ npm i get-github-auth-token
 ```
 
 ```ts
-import { greet } from "get-github-auth-token";
+import { getGitHubAuthToken } from "get-github-auth-token";
 
-greet("Hello, world! 💖");
+const auth = await getGitHubAuthToken("Hello, world! 💖");
+
+if (auth.succeeded) {
+	console.log("Token:", auth.token);
+} else {
+	console.error("Oh no:", auth.error);
+}
 ```
+
+`getGitHubAuthToken` attempts to find a GitHub auth token from the following places, in order:
+
+1. `process.env.GH_TOKEN`
+2. Executing `gh auth token` as a child process
 
 ## Contributors
 
