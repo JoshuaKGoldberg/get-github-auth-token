@@ -38,7 +38,7 @@
 		"@eslint/js": "9.8.0",
 		"@release-it/conventional-changelog": "8.0.1",
 		"@types/eslint-plugin-markdown": "2.0.2",
-		"@types/node": "20.14.14",
+		"@types/node": "20.14.15",
 		"@vitest/coverage-v8": "2.0.5",
 		"console-fail-test": "0.4.4",
 		"cspell": "8.13.2",
