@@ -38,6 +38,9 @@ if (auth.succeeded) {
 1. `process.env.GH_TOKEN`
 2. Executing `gh auth token` as a child process
 
+> 💡 Using this to create a new [Octokit](https://octokit.github.io/rest.js) instance?
+> See [JoshuaKGoldberg/octokit-from-auth](https://github.com/JoshuaKGoldberg/octokit-from-auth).
+
 ## Contributors
 
 <!-- spellchecker: disable -->
