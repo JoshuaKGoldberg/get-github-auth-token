@@ -17,7 +17,9 @@ export async function getGitHubAuthToken(): Promise<GitHubAuthToken> {
 		return { succeeded: true, token: token.stdout };
 	}
 
-	const help = await exec("gh").catch((error) => ({ stderr: error }));
+	const help = await exec("gh").catch((error: unknown) => ({
+		stderr: error as string,
+	}));
 
 	return {
 		error:
