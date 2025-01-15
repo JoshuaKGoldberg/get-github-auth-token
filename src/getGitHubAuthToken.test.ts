@@ -36,7 +36,7 @@ describe("getGitHubAuthToken", () => {
 		expect(actual).toEqual({ succeeded: true, token: stdout });
 	});
 
-	it("returns the gh error when gh auth token and gh error", async () => {
+	it("returns the gh error when gh auth token and gh resolve with errors", async () => {
 		const stderr = "Oh no!";
 
 		mockExec.mockResolvedValueOnce({ stderr: "auth token issue" });
@@ -50,7 +50,7 @@ describe("getGitHubAuthToken", () => {
 		});
 	});
 
-	it("returns the gh auth token error when only gh auth token errors", async () => {
+	it("returns the gh auth token error when only gh auth token resolves with an error", async () => {
 		const stderr = "Oh no!";
 
 		mockExec.mockResolvedValueOnce({ stderr });
@@ -64,7 +64,7 @@ describe("getGitHubAuthToken", () => {
 		});
 	});
 
-	it("returns undefined when both gh and gh auth token print nothing", async () => {
+	it("returns undefined when both gh and gh auth token resolve with nothing", async () => {
 		mockExec.mockResolvedValueOnce({ stderr: "", stdout: "" });
 		mockExec.mockResolvedValueOnce({ stderr: "", stdout: "" });
 
@@ -72,6 +72,18 @@ describe("getGitHubAuthToken", () => {
 
 		expect(actual).toEqual({
 			error: undefined,
+			succeeded: false,
+		});
+	});
+
+	it("returns undefined when both gh and gh auth token reject with errors", async () => {
+		mockExec.mockRejectedValueOnce(new Error("Oh no! (1)"));
+		mockExec.mockRejectedValueOnce(new Error("Oh no! (2)"));
+
+		const actual = await getGitHubAuthToken();
+
+		expect(actual).toEqual({
+			error: "Could not run `gh`: Error: Oh no! (2)",
 			succeeded: false,
 		});
 	});

@@ -9,13 +9,17 @@ export async function getGitHubAuthToken(): Promise<GitHubAuthToken> {
 	}
 
 	const exec = util.promisify(cp.exec);
-	const token = await exec("gh auth token");
+	const token = await exec("gh auth token").catch(
+		(): Record<string, string | undefined> => ({}),
+	);
 
 	if (token.stdout) {
 		return { succeeded: true, token: token.stdout };
 	}
 
-	const help = await exec("gh");
+	const help = await exec("gh").catch((error: unknown) => ({
+		stderr: error as string,
+	}));
 
 	return {
 		error:
