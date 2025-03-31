@@ -9,12 +9,13 @@ jobs:
         with:
           fetch-depth: 0
           ref: main
+          token: ${{ secrets.ACCESS_TOKEN }}
       - uses: ./.github/actions/prepare
       - run: pnpm build
       - env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        uses: JoshuaKGoldberg/release-it-action@a5e9120c1c7bb2d6a4e9f86b9464cf830e215ae7 # v0.2.3
+        uses: JoshuaKGoldberg/release-it-action@b3fd2b4b232338ac09c6ca8b587e6490f968a042 # v0.3.1
 
 name: Release
 
