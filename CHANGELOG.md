@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.2](https://github.com/JoshuaKGoldberg/get-github-auth-token/compare/0.1.1...0.1.2) (2025-03-31)
+
+### Bug Fixes
+
+- bump to create-typescript-app@2 with transitions action ([#375](https://github.com/JoshuaKGoldberg/get-github-auth-token/issues/375)) ([8e63d35](https://github.com/JoshuaKGoldberg/get-github-auth-token/commit/8e63d35c4ca4016c0f94db2ea23fad8d34b4f3a1)), closes [#374](https://github.com/JoshuaKGoldberg/get-github-auth-token/issues/374)
+
 ## [0.1.1](https://github.com/JoshuaKGoldberg/get-github-auth-token/compare/0.1.0...0.1.1) (2025-01-15)
 
 ### Bug Fixes
