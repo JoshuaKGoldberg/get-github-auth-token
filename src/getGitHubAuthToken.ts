@@ -24,6 +24,8 @@ export async function getGitHubAuthToken(): Promise<GitHubAuthToken> {
 	return {
 		error:
 			(help.stderr && `Could not run \`gh\`: ${help.stderr}`) ||
+			// If stderr is "", we still ignore it and set to undefined
+			// eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
 			token.stderr ||
 			undefined,
 		succeeded: false,
