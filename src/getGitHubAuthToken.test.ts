@@ -13,12 +13,36 @@ vi.mock("node:util", () => ({
 describe("getGitHubAuthToken", () => {
 	beforeEach(() => {
 		process.env.GH_TOKEN = "";
+		process.env.GITHUB_TOKEN = "";
 	});
 
 	it("returns GH_TOKEN when it exists and is truthy", async () => {
 		const GH_TOKEN = "gho_abc123";
 
 		process.env.GH_TOKEN = GH_TOKEN;
+
+		const actual = await getGitHubAuthToken();
+
+		expect(actual).toEqual({ succeeded: true, token: GH_TOKEN });
+		expect(mockExec).not.toHaveBeenCalled();
+	});
+
+	it("returns GITHUB_TOKEN when it exists and is truthy and GH_TOKEN is not", async () => {
+		const GITHUB_TOKEN = "gho_abc123";
+
+		process.env.GITHUB_TOKEN = GITHUB_TOKEN;
+
+		const actual = await getGitHubAuthToken();
+
+		expect(actual).toEqual({ succeeded: true, token: GITHUB_TOKEN });
+		expect(mockExec).not.toHaveBeenCalled();
+	});
+
+	it("returns GH_TOKEN when both it and GITHUB_TOKEN exist and are truthy", async () => {
+		const GH_TOKEN = "gho_abc123";
+
+		process.env.GH_TOKEN = GH_TOKEN;
+		process.env.GITHUB_TOKEN = "gho_def456";
 
 		const actual = await getGitHubAuthToken();
 

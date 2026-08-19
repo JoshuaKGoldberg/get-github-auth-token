@@ -8,6 +8,10 @@ export async function getGitHubAuthToken(): Promise<GitHubAuthToken> {
 		return { succeeded: true, token: process.env.GH_TOKEN };
 	}
 
+	if (process.env.GITHUB_TOKEN) {
+		return { succeeded: true, token: process.env.GITHUB_TOKEN };
+	}
+
 	const exec = util.promisify(cp.exec);
 	const token = await exec("gh auth token").catch(
 		(): Record<string, string | undefined> => ({}),

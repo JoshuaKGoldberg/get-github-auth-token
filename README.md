@@ -39,7 +39,8 @@ if (auth.succeeded) {
 `getGitHubAuthToken` attempts to find a GitHub auth token from the following places, in order:
 
 1. `process.env.GH_TOKEN`
-2. Executing `gh auth token` as a child process
+2. `process.env.GITHUB_TOKEN`
+3. Executing `gh auth token` as a child process
 
 > 💡 Using this to create a new [Octokit](https://octokit.github.io/rest.js) instance?
 > See [JoshuaKGoldberg/octokit-from-auth](https://github.com/JoshuaKGoldberg/octokit-from-auth).
