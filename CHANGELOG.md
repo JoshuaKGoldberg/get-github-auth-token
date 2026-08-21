@@ -1,5 +1,11 @@
 # Changelog
 
+# [0.2.0](https://github.com/JoshuaKGoldberg/get-github-auth-token/compare/0.1.2...0.2.0) (2026-08-21)
+
+### Features
+
+- also try process.env.GITHUB_TOKEN ([#781](https://github.com/JoshuaKGoldberg/get-github-auth-token/issues/781)) ([a11677b](https://github.com/JoshuaKGoldberg/get-github-auth-token/commit/a11677bd8c6d0a702ad478015a8223b6ccc81571)), closes [#373](https://github.com/JoshuaKGoldberg/get-github-auth-token/issues/373)
+
 ## [0.1.2](https://github.com/JoshuaKGoldberg/get-github-auth-token/compare/0.1.1...0.1.2) (2025-03-31)
 
 ### Bug Fixes
