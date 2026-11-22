@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { getGitHubAuthToken } from "./getGitHubAuthToken.js";
+import { getGitHubAuthToken } from "./getGitHubAuthToken.ts";
 
 const mockExec = vi.fn();
 
@@ -10,7 +10,7 @@ vi.mock("node:util", () => ({
 	},
 }));
 
-describe("getGitHubAuthToken", () => {
+describe(getGitHubAuthToken, () => {
 	beforeEach(() => {
 		process.env.GH_TOKEN = "";
 		process.env.GITHUB_TOKEN = "";

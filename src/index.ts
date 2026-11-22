@@ -1,2 +1,2 @@
-export * from "./getGitHubAuthToken.js";
-export * from "./types.js";
+export * from "./getGitHubAuthToken.ts";
+export * from "./types.ts";

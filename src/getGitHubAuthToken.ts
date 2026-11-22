@@ -1,7 +1,7 @@
 import * as cp from "node:child_process";
 import * as util from "node:util";
 
-import { GitHubAuthToken } from "./types.js";
+import { GitHubAuthToken } from "./types.ts";
 
 export async function getGitHubAuthToken(): Promise<GitHubAuthToken> {
 	if (process.env.GH_TOKEN) {
