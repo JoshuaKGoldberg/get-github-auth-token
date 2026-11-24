@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.1](https://github.com/JoshuaKGoldberg/get-github-auth-token/compare/0.2.0...0.2.1) (2026-11-24)
+
+### Bug Fixes
+
+- bump to create-typescript-app@2.87.18 ([#877](https://github.com/JoshuaKGoldberg/get-github-auth-token/issues/877)) ([c987b8b](https://github.com/JoshuaKGoldberg/get-github-auth-token/commit/c987b8baba98c2ec81e729e17566c17d69db1ba4)), closes [#876](https://github.com/JoshuaKGoldberg/get-github-auth-token/issues/876)
+
 ## [0.2.0](https://github.com/JoshuaKGoldberg/get-github-auth-token/compare/0.1.2...0.2.0) (2026-08-21)
 
 ### Features
