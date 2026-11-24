@@ -36,6 +36,5 @@
   ],
   "projectName": "get-github-auth-token",
   "projectOwner": "JoshuaKGoldberg",
-  "repoType": "github",
-  "commitConvention": "angular"
+  "repoType": "github"
 }
